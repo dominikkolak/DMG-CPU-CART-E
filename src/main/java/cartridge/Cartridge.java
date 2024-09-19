@@ -1,5 +1,7 @@
 package cartridge;
 
-public class Cartridge {
+import shared.Addressable;
+
+public class Cartridge implements Addressable {
 
 }

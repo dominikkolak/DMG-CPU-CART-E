@@ -1,7 +1,7 @@
 package cartridge.util;
 
 import cartridge.constants.CartridgeConstants;
-import cartridge.exceptions.invalidCartridgeException;
+import cartridge.exceptions.InvalidCartridgeException;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -25,9 +25,9 @@ public class RomLoader {
 
         byte[] rom_data = Files.readAllBytes(file_path);
         
-        if (rom_data.length < CartridgeConstants.MIN_ROM_SIZE) { throw new invalidCartridgeException("ROM file too small: " + rom_data.length + " < " + CartridgeConstants.MIN_ROM_SIZE); }
+        if (rom_data.length < CartridgeConstants.MIN_ROM_SIZE) { throw new InvalidCartridgeException("ROM file too small: " + rom_data.length + " < " + CartridgeConstants.MIN_ROM_SIZE); }
 
-        if (rom_data.length < CartridgeConstants.HEADER_END + 1) { throw new invalidCartridgeException("ROM file does not contain space for header"); }
+        if (rom_data.length < CartridgeConstants.HEADER_END + 1) { throw new InvalidCartridgeException("ROM file does not contain space for header"); }
         
         return rom_data;
     }
